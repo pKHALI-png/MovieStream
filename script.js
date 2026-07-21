@@ -1,245 +1,431 @@
-<!-- POPULAR -->
+/* =====================================
+   MOVIESTREAM PRO SCRIPT
+===================================== */
 
-<section id="popular" class="trending">
 
-<h2>🔥 Popular This Week</h2>
+const API_KEY = "YOUR_TMDB_API_KEY";
 
-<div class="movies" id="popular-container"></div>
+const API_URL = "https://api.themoviedb.org/3";
 
-</section>
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 
 
-<!-- NEW RELEASES -->
 
-<section class="trending">
 
-<h2>🎬 New Releases</h2>
+// =====================================
+// MOVIE CONTAINERS
+// =====================================
 
-<div class="movies" id="new-container"></div>
 
-</section>
+const containers = {
 
+    trending: document.getElementById("movie-container"),
 
+    popular: document.getElementById("popular-container"),
 
-<!-- TOP RATED -->
+    newMovies: document.getElementById("new-container"),
 
-<section class="trending">
+    top: document.getElementById("top-container")
 
-<h2>⭐ Top Rated</h2>
+};
 
-<div class="movies" id="top-container"></div>
 
-</section>
 
 
 
-<!-- COMING SOON -->
+// =====================================
+// FETCH MOVIES
+// =====================================
 
-<section class="trending">
 
-<h2>⏳ Coming Soon</h2>
+async function getMovies(endpoint, container){
 
-<div class="movies" id="coming-container"></div>
 
-</section>
+try{
 
 
+container.innerHTML = `
 
-<!-- WHY CHOOSE US -->
+<div class="loader"></div>
 
-<section class="features">
+`;
 
-<h2>Why Choose MovieStream?</h2>
 
-<div class="feature-grid">
 
-<div class="feature-card">
+const response = await fetch(
 
-<h3>⚡ Ultra Fast</h3>
+`${API_URL}${endpoint}?api_key=${API_KEY}`
 
-<p>Stream instantly without long loading times.</p>
+);
 
-</div>
 
-<div class="feature-card">
 
-<h3>🎬 Huge Library</h3>
+const data = await response.json();
 
-<p>Thousands of movies, series and documentaries.</p>
 
-</div>
 
-<div class="feature-card">
+displayMovies(
 
-<h3>📱 Watch Anywhere</h3>
+data.results,
 
-<p>Mobile, tablet, laptop and smart TV support.</p>
+container
 
-</div>
+);
 
-<div class="feature-card">
 
-<h3>🔒 Secure Streaming</h3>
 
-<p>Safe accounts with high-quality streaming.</p>
+}
 
-</div>
+catch(error){
 
-</div>
 
-</section>
+console.log(error);
 
 
+container.innerHTML =
 
-<!-- SUBSCRIPTION -->
+"<p>Unable to load movies</p>";
 
-<section id="plans" class="pricing">
 
-<h2>Choose Your Plan</h2>
+}
 
-<div class="plans">
 
-<div class="plan">
+}
 
-<h3>Basic</h3>
 
-<p class="price">$4.99/month</p>
 
-<ul>
 
-<li>✔ HD Streaming</li>
 
-<li>✔ 1 Device</li>
 
-<li>✔ Movie Library</li>
 
-</ul>
+// =====================================
+// DISPLAY MOVIE CARDS
+// =====================================
 
-<button>Subscribe</button>
 
-</div>
+function displayMovies(movies, container){
 
 
+container.innerHTML="";
 
-<div class="plan featured">
 
-<h3>Premium</h3>
 
-<p class="price">$9.99/month</p>
+movies.forEach(movie=>{
 
-<ul>
 
-<li>✔ Full HD</li>
+const card=document.createElement("div");
 
-<li>✔ 3 Devices</li>
 
-<li>✔ Offline Download</li>
+card.classList.add("card","fade");
 
-<li>✔ No Ads</li>
 
-</ul>
 
-<button>Subscribe</button>
+const poster = movie.poster_path ?
 
-</div>
+IMAGE_URL + movie.poster_path :
 
+"";
 
 
-<div class="plan">
+card.innerHTML=`
 
-<h3>VIP</h3>
+<a onclick="openMovie(${movie.id})">
 
-<p class="price">$14.99/month</p>
 
-<ul>
+<img src="${poster}">
 
-<li>✔ 4K Ultra HD</li>
 
-<li>✔ Unlimited Devices</li>
+<h3>
 
-<li>✔ Early Access</li>
+${movie.title || movie.name}
 
-<li>✔ VIP Support</li>
+</h3>
 
-</ul>
-
-<button>Subscribe</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-<div class="stat">
-
-<h1>10,000+</h1>
-
-<p>Movies</p>
-
-</div>
-
-<div class="stat">
-
-<h1>2,500+</h1>
-
-<p>TV Shows</p>
-
-</div>
-
-<div class="stat">
-
-<h1>180+</h1>
-
-<p>Countries</p>
-
-</div>
-
-<div class="stat">
-
-<h1>5M+</h1>
-
-<p>Users</p>
-
-</div>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer id="footer">
-
-<h2>MovieStream</h2>
 
 <p>
 
-Unlimited entertainment anytime, anywhere.
+⭐ ${movie.vote_average}
 
 </p>
 
-<br>
 
-<p>
+</a>
 
-Home • Movies • TV Shows • Contact • Privacy Policy
+`;
 
-</p>
 
-<br>
 
-<p>
+container.appendChild(card);
 
-© 2026 MovieStream. All Rights Reserved.
 
-</p>
 
-</footer>
+});
+
+
+}
+
+
+
+
+
+
+
+// =====================================
+// LOAD HOME PAGE MOVIES
+// =====================================
+
+
+
+getMovies(
+
+"/trending/movie/week",
+
+containers.trending
+
+);
+
+
+
+getMovies(
+
+"/movie/popular",
+
+containers.popular
+
+);
+
+
+
+getMovies(
+
+"/movie/now_playing",
+
+containers.newMovies
+
+);
+
+
+
+getMovies(
+
+"/movie/top_rated",
+
+containers.top
+
+);
+
+
+
+
+
+
+
+
+// =====================================
+// SEARCH MOVIE
+// =====================================
+
+
+async function searchMovie(){
+
+
+const query = document
+
+.getElementById("searchInput")
+
+.value;
+
+
+
+if(!query) return;
+
+
+
+const response = await fetch(
+
+`${API_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+
+);
+
+
+
+const data = await response.json();
+
+
+
+displayMovies(
+
+data.results,
+
+containers.trending
+
+);
+
+
+
+document
+
+.getElementById("trending")
+
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+
+
+
+
+// =====================================
+// MOVIE DETAILS
+// =====================================
+
+
+async function openMovie(id){
+
+
+localStorage.setItem(
+
+"movieID",
+
+id
+
+);
+
+
+
+window.location.href="movie.html";
+
+
+}
+
+
+
+
+
+
+// =====================================
+// HERO BACKGROUND
+// =====================================
+
+
+async function loadHeroBackground(){
+
+
+const response = await fetch(
+
+`${API_URL}/movie/popular?api_key=${API_KEY}`
+
+);
+
+
+
+const data = await response.json();
+
+
+
+const background = document
+
+.getElementById(
+
+"poster-background"
+
+);
+
+
+
+data.results.slice(0,18)
+
+.forEach(movie=>{
+
+
+if(movie.poster_path){
+
+
+const img=document.createElement("img");
+
+
+img.src=
+
+IMAGE_URL + movie.poster_path;
+
+
+background.appendChild(img);
+
+
+
+}
+
+
+});
+
+
+}
+
+
+
+loadHeroBackground();
+
+
+
+
+
+
+// =====================================
+// LOGIN BUTTONS
+// =====================================
+
+
+document.querySelector(".login")
+
+.onclick=()=>{
+
+
+window.location.href="login.html";
+
+
+};
+
+
+
+document.querySelector(".signup")
+
+.onclick=()=>{
+
+
+window.location.href="signup.html";
+
+
+};
+
+
+
+
+
+
+
+// =====================================
+// WATCH BUTTON
+// =====================================
+
+
+document.querySelector(".watch")
+
+.onclick=()=>{
+
+
+alert(
+
+"Choose a movie and start streaming!"
+
+);
+
+
+};
