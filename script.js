@@ -1,152 +1,94 @@
-// ==================================
+// =====================================
 // MOVIESTREAM SCRIPT.JS
-// ==================================
+// =====================================
 
 
-// ================================
-// DYNAMIC HERO MOVIE SLIDER
-// ================================
+// =====================================
+// MOVIE POSTER DATABASE
+// =====================================
 
-const heroBackground = document.querySelector(".hero-bg");
-const heroTitle = document.querySelector("#hero-title");
-const heroDescription = document.querySelector("#hero-description");
+const movies = [
 
-
-const heroMovies = [
-
-{
-    image:"images/maleficent.jpg",
-    title:"Maleficent: Mistress of Evil",
-    description:
-    "Enter a magical world of fantasy, adventure and powerful battles."
-},
-
-{
-    image:"images/oneofthemdays.jpg",
-    title:"One of Them Days",
-    description:
-    "A hilarious journey filled with friendship, comedy and unforgettable moments."
-},
-
-{
-    image:"images/kraken.jpg",
-    title:"Kraken",
-    description:
-    "Discover a thrilling adventure with mystery, danger and epic action."
-},
-
-{
-    image:"images/webweaver.jpg",
-    title:"Web Weaver: A New Tomorrow",
-    description:
-    "A futuristic story where heroes rise to protect a new world."
-},
-
-{
-    image:"images/avatar.jpg",
-    title:"Avatar: The Way of Water",
-    description:
-    "Return to Pandora for a breathtaking adventure under the oceans."
-}
+"acrimony2",
+"aladdin",
+"annabelle_creation",
+"antman",
+"avatar",
+"blackwidow",
+"cruella",
+"damsel",
+"dune2",
+"dune3",
+"extraction",
+"extraction3",
+"furiosa",
+"howtotrainyourdragon",
+"johnwick4",
+"kraken",
+"luca",
+"maleficent",
+"manonfire",
+"mosi",
+"mowgli",
+"oneofthemdays",
+"onepiece",
+"paidinfull",
+"rampage",
+"siren",
+"spiderman",
+"strangerthings",
+"theconjuring",
+"thelastairbender",
+"themud",
+"thenun",
+"thepunisher",
+"warmachine",
+"webweaver",
+"zootopia2",
+"theequalizer",
+"shrek",
+"skyscraper",
+"moana",
+"thering",
+"from",
+"peakyblinders",
+"thebeekeeper",
+"sinners",
+"piratesofthecaribbean",
+"coco",
+"thelastoneofus",
+"it"
 
 ];
 
 
-let heroIndex = 0;
+
+
+// =====================================
+// CREATE MOVING POSTER BACKGROUND
+// =====================================
+
+
+const posterBackground =
+document.getElementById("poster-background");
 
 
 
-function changeHero(){
+movies.forEach(movie => {
 
 
-    if(heroTitle && heroDescription){
+    const poster =
+    document.createElement("img");
 
 
-        heroTitle.style.opacity="0";
-        heroDescription.style.opacity="0";
+    poster.src =
+    `images/${movie}.jpg`;
 
 
-    }
+    poster.alt = movie;
 
 
-
-    setTimeout(()=>{
-
-
-        heroBackground.style.backgroundImage =
-        `url(${heroMovies[heroIndex].image})`;
-
-
-        heroTitle.textContent =
-        heroMovies[heroIndex].title;
-
-
-        heroDescription.textContent =
-        heroMovies[heroIndex].description;
-
-
-
-        if(heroTitle && heroDescription){
-
-            heroTitle.style.opacity="1";
-            heroDescription.style.opacity="1";
-
-        }
-
-
-        heroIndex++;
-
-
-        if(heroIndex >= heroMovies.length){
-
-            heroIndex=0;
-
-        }
-
-
-    },700);
-
-
-}
-
-
-
-changeHero();
-
-
-setInterval(changeHero,6000);
-
-
-
-
-
-
-// ================================
-// HEADER EFFECT
-// ================================
-
-
-const header =
-document.querySelector("header");
-
-
-window.addEventListener("scroll",()=>{
-
-
-if(window.scrollY > 50){
-
-header.style.background =
-"rgba(0,0,0,0.95)";
-
-
-}else{
-
-
-header.style.background =
-"rgba(0,0,0,0.75)";
-
-
-}
+    posterBackground.appendChild(poster);
 
 
 });
@@ -156,9 +98,45 @@ header.style.background =
 
 
 
-// ================================
-// MOVIE CARD EFFECT
-// ================================
+// =====================================
+// HEADER SCROLL EFFECT
+// =====================================
+
+
+const header =
+document.querySelector("header");
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 50){
+
+        header.style.background =
+        "rgba(0,0,0,0.95)";
+
+    }
+
+    else{
+
+        header.style.background =
+        "rgba(0,0,0,0.75)";
+
+    }
+
+
+});
+
+
+
+
+
+
+
+// =====================================
+// MOVIE CARD HOVER EFFECT
+// =====================================
 
 
 const cards =
@@ -169,30 +147,31 @@ document.querySelectorAll(".card");
 cards.forEach(card=>{
 
 
-card.addEventListener("mouseenter",()=>{
+    card.addEventListener("mouseenter",()=>{
 
-card.style.zIndex="10";
+        card.style.zIndex="10";
+
+    });
+
+
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.zIndex="1";
+
+    });
+
 
 });
 
 
-card.addEventListener("mouseleave",()=>{
-
-card.style.zIndex="1";
-
-});
-
-
-});
 
 
 
 
-
-
-// ================================
-// BUTTON ACTIONS
-// ================================
+// =====================================
+// BUTTON FUNCTIONS
+// =====================================
 
 
 const watchButton =
@@ -202,15 +181,20 @@ document.querySelector(".watch");
 
 if(watchButton){
 
-watchButton.onclick=()=>{
 
-alert(
-"🎬 Choose a subscription plan to start watching movies."
-);
+watchButton.addEventListener("click",()=>{
 
-};
+
+    alert(
+    "🎬 Choose a subscription plan to start watching."
+    );
+
+
+});
+
 
 }
+
 
 
 
@@ -223,11 +207,12 @@ document.querySelector(".info");
 
 if(infoButton){
 
-infoButton.onclick=()=>{
+
+infoButton.addEventListener("click",()=>{
 
 
 document
-.querySelector("#movies")
+.getElementById("movies")
 .scrollIntoView({
 
 behavior:"smooth"
@@ -235,7 +220,8 @@ behavior:"smooth"
 });
 
 
-};
+});
+
 
 }
 
@@ -244,9 +230,64 @@ behavior:"smooth"
 
 
 
-// ================================
-// SUBSCRIBE BUTTONS
-// ================================
+
+// =====================================
+// LOGIN / SIGNUP
+// =====================================
+
+
+const login =
+document.querySelector(".login");
+
+
+
+const signup =
+document.querySelector(".signup");
+
+
+
+if(login){
+
+
+login.onclick=()=>{
+
+
+alert(
+"👤 Login system coming soon."
+);
+
+
+};
+
+
+}
+
+
+
+if(signup){
+
+
+signup.onclick=()=>{
+
+
+alert(
+"🚀 Account creation coming soon."
+);
+
+
+};
+
+
+}
+
+
+
+
+
+
+// =====================================
+// SUBSCRIPTION BUTTONS
+// =====================================
 
 
 const subscribeButtons =
@@ -261,7 +302,9 @@ button.addEventListener("click",()=>{
 
 
 alert(
-"💳 Payment system coming soon."
+
+"💳 Payment system will be added soon."
+
 );
 
 
@@ -275,42 +318,38 @@ alert(
 
 
 
-// ================================
-// LOGIN / SIGNUP
-// ================================
+// =====================================
+// SIMPLE POSTER PARALLAX EFFECT
+// =====================================
 
 
-const login =
-document.querySelector(".login");
-
-
-const signup =
-document.querySelector(".signup");
+const posterWall =
+document.querySelector(".poster-background");
 
 
 
-if(login){
-
-login.onclick=()=>{
-
-alert(
-"Login system will be connected soon."
-);
-
-};
-
-}
+window.addEventListener("mousemove",(e)=>{
 
 
+if(posterWall){
 
-if(signup){
 
-signup.onclick=()=>{
+let x =
+(e.clientX / window.innerWidth - 0.5) * 20;
 
-alert(
-"Create your MovieStream account."
-);
 
-};
+let y =
+(e.clientY / window.innerHeight - 0.5) * 20;
+
+
+
+posterWall.style.transform =
+
+`rotate(-8deg)
+scale(1.2)
+translate(${x}px,${y}px)`;
 
 }
+
+
+});
