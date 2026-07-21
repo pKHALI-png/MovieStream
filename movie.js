@@ -4,7 +4,7 @@
 
 
 const movieDatabase = {
-
+{
 
 acrimony2:{
 title:"Acrimony 2",
@@ -491,4 +491,5 @@ document.title =
 movie.title + " | MovieStream";
 
 
+  }
   }
