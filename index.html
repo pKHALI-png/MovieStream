@@ -4,190 +4,613 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MovieStream | Unlimited Movies & TV Shows</title>
+<title>MovieStream | Premium Movies & TV Shows</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
 <div class="logo">
-
 🎬 MovieStream
-
 </div>
+
 
 <nav>
 
-<a href="#">Home</a>
-
+<a href="#home">Home</a>
 <a href="#trending">Trending</a>
-
 <a href="#popular">Popular</a>
-
 <a href="#plans">Plans</a>
-
 <a href="#footer">Contact</a>
 
 </nav>
 
+
 <div class="buttons">
 
-<button class="login">Login</button>
+<button class="login">
+Login
+</button>
 
-<button class="signup">Sign Up</button>
+<button class="signup">
+Sign Up
+</button>
 
 </div>
 
 </header>
 
-<section class="hero">
 
-<div id="poster-background" class="poster-background"></div>
+
+<!-- HERO SECTION -->
+
+
+<section class="hero" id="home">
+
+
+<div class="poster-background" id="poster-background"></div>
+
 
 <div class="overlay">
 
+
 <span class="featured">
-
-🔥 #1 Trending Worldwide
-
+🔥 #1 Streaming Platform
 </span>
+
 
 <h1>
 
-Unlimited Movies,<br>
-
-TV Shows & Series.
+Unlimited Movies,
+<br>
+TV Shows & Series
 
 </h1>
 
+
 <p>
 
-Watch thousands of blockbuster movies, trending TV shows, anime and documentaries in HD, Full HD and 4K anywhere, anytime.
+Watch thousands of blockbuster movies,
+exclusive series, anime and documentaries
+in HD, Full HD and 4K quality.
 
 </p>
 
+
+
 <div class="hero-info">
 
-<span>⭐ 8.9 IMDb</span>
+<span>
+⭐ 8.9 IMDb
+</span>
 
-<span>🎬 Action</span>
+<span>
+🎬 Action
+</span>
 
-<span>📅 2026</span>
+<span>
+📅 2026
+</span>
 
-<span>4K UHD</span>
+<span>
+4K UHD
+</span>
+
 
 </div>
+
+
 
 <div class="hero-buttons">
 
+
 <button class="watch">
-
 ▶ Watch Now
-
 </button>
+
 
 <button class="info">
-
 More Info
-
 </button>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
+
+
+
+
+<!-- SEARCH -->
+
 
 <section class="search-section">
 
+
 <h2>
-
 Find Your Favorite Movie
-
 </h2>
+
+
+<p>
+Search thousands of movies and TV shows.
+</p>
+
+
 
 <div class="search-box">
 
-<input
 
-type="text"
-
+<input 
 id="searchInput"
+type="text"
+placeholder="Search movies...">
 
-placeholder="Search movies or TV shows...">
 
-<button>
-
+<button onclick="searchMovie()">
 Search
-
 </button>
+
 
 </div>
 
+
 </section>
+
+
+
+
+
+<!-- CATEGORIES -->
+
 
 <section class="categories">
 
+
 <h2>
-
 Browse Categories
-
 </h2>
+
+
 
 <div class="grid">
 
-<div class="category">🎬 Action</div>
 
-<div class="category">😂 Comedy</div>
+<div class="category">
+🎬 Action
+</div>
 
-<div class="category">👻 Horror</div>
 
-<div class="category">🚀 Sci-Fi</div>
+<div class="category">
+😂 Comedy
+</div>
 
-<div class="category">❤️ Romance</div>
 
-<div class="category">🏰 Fantasy</div>
+<div class="category">
+👻 Horror
+</div>
 
-<div class="category">🎭 Drama</div>
 
-<div class="category">📺 TV Series</div>
+<div class="category">
+🚀 Sci-Fi
+</div>
+
+
+<div class="category">
+❤️ Romance
+</div>
+
+
+<div class="category">
+🏰 Fantasy
+</div>
+
+
+<div class="category">
+🎭 Drama
+</div>
+
+
+<div class="category">
+🕵 Crime
+</div>
+
 
 </div>
 
+
 </section>
 
-<section id="trending" class="trending">
+
+
+
+
+
+<!-- TRENDING -->
+
+
+<section id="trending" class="movie-section">
+
+
+<div class="section-header">
 
 <h2>
-
 🔥 Trending Now
-
 </h2>
 
-<div
-
-class="movies"
-
-id="movie-container">
+<a>
+View All →
+</a>
 
 </div>
 
+
+
+<div class="movies" id="movie-container">
+
+</div>
+
+
 </section>
 
+
+
+
+
+
+<!-- POPULAR -->
+
+
+<section id="popular" class="movie-section">
+
+
+<div class="section-header">
+
+<h2>
+⭐ Popular This Week
+</h2>
+
+<a>
+View All →
+</a>
+
+</div>
+
+
+<div class="movies" id="popular-container">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- NEW RELEASES -->
+
+
+<section class="movie-section">
+
+
+<div class="section-header">
+
+<h2>
+🎬 New Releases
+</h2>
+
+
+<a>
+View All →
+</a>
+
+
+</div>
+
+
+<div class="movies" id="new-container">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- TOP RATED -->
+
+
+<section class="movie-section">
+
+
+<div class="section-header">
+
+<h2>
+🏆 Top Rated
+</h2>
+
+
+<a>
+View All →
+</a>
+
+
+</div>
+
+
+<div class="movies" id="top-container">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- FEATURES -->
+
+
+<section class="features">
+
+
+<h2>
+Why Choose MovieStream?
+</h2>
+
+
+<div class="feature-grid">
+
+
+<div class="feature-card">
+
+<h3>
+⚡ Fast Streaming
+</h3>
+
+<p>
+No buffering. Smooth HD and 4K experience.
+</p>
+
+</div>
+
+
+
+<div class="feature-card">
+
+<h3>
+🎬 Huge Library
+</h3>
+
+<p>
+Thousands of movies and series.
+</p>
+
+</div>
+
+
+
+<div class="feature-card">
+
+<h3>
+📱 Watch Anywhere
+</h3>
+
+<p>
+Mobile, tablet, laptop and TV support.
+</p>
+
+</div>
+
+
+
+<div class="feature-card">
+
+<h3>
+🔒 Secure
+</h3>
+
+<p>
+Safe accounts and protected streaming.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- PLANS -->
+
+
+<section id="plans" class="pricing">
+
+
+<h2>
+Choose Your Plan
+</h2>
+
+
+
+<div class="plans">
+
+
+
+<div class="plan">
+
+<h3>
+Basic
+</h3>
+
+<h1>
+$4.99
+</h1>
+
+<p>
+HD Streaming
+</p>
+
+<p>
+1 Device
+</p>
+
+
+<button>
+Subscribe
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="plan featured">
+
+
+<h3>
+Premium
+</h3>
+
+
+<h1>
+$9.99
+</h1>
+
+
+<p>
+Full HD + 4K
+</p>
+
+
+<p>
+3 Devices
+</p>
+
+
+<p>
+No Ads
+</p>
+
+
+<button>
+Subscribe
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="plan">
+
+
+<h3>
+VIP
+</h3>
+
+
+<h1>
+$14.99
+</h1>
+
+
+<p>
+4K Ultra HD
+</p>
+
+
+<p>
+Unlimited Devices
+</p>
+
+
+<button>
+Subscribe
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer id="footer">
+
+
+<h2>
+🎬 MovieStream
+</h2>
+
+
+<p>
+Unlimited entertainment anytime, anywhere.
+</p>
+
+
+<p>
+© 2026 MovieStream. All Rights Reserved.
+</p>
+
+
+</footer>
+
+
+
+
+
+
 <script src="script.js"></script>
+
 
 </body>
 
