@@ -6,7 +6,7 @@
 
 const movieDatabase = {
 
-
+{
 acrimony2:{
 title:"Acrimony 2",
 category:"Drama",
@@ -514,4 +514,5 @@ document.getElementById("movie-title").textContent =
 document.getElementById("movie-description").textContent =
 "Sorry, this movie is not available.";
 
+ }
  }
