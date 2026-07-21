@@ -1,0 +1,563 @@
+/* ============================
+   MOVIESTREAM PREMIUM STYLE
+============================ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+body{
+
+    background:#080808;
+    color:white;
+    overflow-x:hidden;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+/* ============================
+HEADER
+============================ */
+
+
+header{
+
+    position:fixed;
+    top:0;
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 7%;
+
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(15px);
+
+    z-index:1000;
+
+}
+
+
+
+.logo{
+
+    font-size:30px;
+    font-weight:800;
+    color:#e50914;
+
+}
+
+
+
+nav{
+
+    display:flex;
+    gap:35px;
+
+}
+
+
+
+nav a{
+
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    transition:.3s;
+
+}
+
+
+nav a:hover{
+
+    color:#e50914;
+
+}
+
+
+
+
+.buttons button{
+
+    padding:10px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+
+}
+
+
+
+.login{
+
+    background:none;
+    color:white;
+    border:1px solid white;
+
+}
+
+
+
+.signup{
+
+    background:#e50914;
+    color:white;
+    border:none;
+
+}
+
+
+
+/* ============================
+HERO
+============================ */
+
+
+.hero{
+
+    height:100vh;
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.45),
+    #080808
+    ),
+
+    url("images/hero.jpg");
+
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 7%;
+
+}
+
+
+
+.overlay{
+
+    max-width:700px;
+
+}
+
+
+
+.overlay h1{
+
+    font-size:70px;
+    line-height:1.1;
+    font-weight:800;
+
+}
+
+
+
+.overlay p{
+
+    margin:25px 0;
+
+    font-size:18px;
+    color:#ccc;
+
+}
+
+
+
+.hero-buttons button{
+
+    padding:16px 35px;
+    border-radius:40px;
+    margin-right:15px;
+    cursor:pointer;
+    font-size:16px;
+
+}
+
+
+
+.watch{
+
+    background:#e50914;
+    color:white;
+    border:none;
+
+}
+
+
+
+.info{
+
+    background:#ffffff25;
+    color:white;
+    border:1px solid white;
+
+}
+
+
+
+
+
+/* ============================
+MOVIES
+============================ */
+
+
+.trending{
+
+    padding:70px 7%;
+
+}
+
+
+
+.trending h2,
+.categories h2,
+.pricing h2{
+
+    font-size:35px;
+    margin-bottom:35px;
+
+}
+
+
+
+.movies{
+
+    display:flex;
+    gap:25px;
+
+    overflow-x:auto;
+
+}
+
+
+
+.movies::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+
+.card{
+
+    min-width:220px;
+    height:330px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#151515;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+
+.card img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+
+
+.card h3{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    padding:15px;
+
+    background:linear-gradient(
+    transparent,
+    black
+    );
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+
+
+.card:hover img{
+
+    transform:scale(1.15);
+
+}
+
+
+
+
+/* ============================
+CATEGORIES
+============================ */
+
+
+.categories{
+
+    padding:70px 7%;
+
+}
+
+
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.category{
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:#171717;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+
+
+.category:hover{
+
+    background:#e50914;
+
+    transform:translateY(-10px);
+
+}
+
+
+
+
+
+/* ============================
+PLANS
+============================ */
+
+
+.pricing{
+
+    padding:80px 7%;
+
+    text-align:center;
+
+}
+
+
+
+.plans{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.plan{
+
+    background:#151515;
+
+    padding:40px;
+
+    width:300px;
+
+    border-radius:25px;
+
+}
+
+
+
+.featured{
+
+    border:2px solid #e50914;
+
+    transform:scale(1.05);
+
+}
+
+
+
+.price{
+
+    color:#e50914;
+
+    font-size:40px;
+
+    font-weight:800;
+
+    margin:20px;
+
+}
+
+
+
+.plan ul{
+
+    list-style:none;
+
+    color:#ccc;
+
+    line-height:2;
+
+}
+
+
+
+.plan button{
+
+    margin-top:25px;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    border:none;
+
+    background:#e50914;
+
+    color:white;
+
+}
+
+
+
+
+/* ============================
+FOOTER
+============================ */
+
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#888;
+
+    border-top:1px solid #222;
+
+}
+
+
+
+
+
+/* ============================
+MOBILE
+============================ */
+
+
+@media(max-width:800px){
+
+
+nav{
+
+    display:none;
+
+}
+
+
+.logo{
+
+    font-size:22px;
+
+}
+
+
+
+.overlay h1{
+
+    font-size:40px;
+
+}
+
+
+
+.card{
+
+    min-width:170px;
+
+    height:250px;
+
+}
+
+
+
+.featured{
+
+    transform:none;
+
+}
+
+
+
+}
