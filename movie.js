@@ -514,5 +514,82 @@ document.getElementById("movie-title").textContent =
 document.getElementById("movie-description").textContent =
 "Sorry, this movie is not available.";
 
- }
+ }document.addEventListener("DOMContentLoaded", function(){
+
+
+const selectedMovie =
+new URLSearchParams(window.location.search).get("movie");
+
+
+console.log("Movie selected:", selectedMovie);
+
+
+
+if(!selectedMovie){
+
+document.getElementById("movie-title").innerHTML =
+"Movie Not Selected";
+
+return;
+
+}
+
+
+
+const movie = movieDatabase[selectedMovie];
+
+
+
+if(movie){
+
+
+document.getElementById("movie-title").textContent =
+movie.title;
+
+
+document.getElementById("movie-description").textContent =
+movie.description;
+
+
+document.getElementById("rating").textContent =
+movie.rating + "/10";
+
+
+document.getElementById("category").textContent =
+movie.category;
+
+
+document.getElementById("year").textContent =
+movie.year;
+
+
+
+document.getElementById("movie-poster").src =
+"images/" + selectedMovie + ".jpg";
+
+
+
+}
+
+else{
+
+
+document.getElementById("movie-title").textContent =
+"Movie Not Found";
+
+
+document.getElementById("movie-description").textContent =
+"Movie information is unavailable.";
+
+
+console.log(
+"Available movies:",
+Object.keys(movieDatabase)
+);
+
+
+}
+
+
+});
  }
