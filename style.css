@@ -186,10 +186,10 @@ nav a:hover{
     transform:rotate(-8deg) scale(1.2);
 
 
-    opacity:.45;
+    opacity:.65;
 
 
-    filter:brightness(35%);
+    filter:brightness(50%);
 
 
     z-index:0;
