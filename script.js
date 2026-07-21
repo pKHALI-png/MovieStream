@@ -1,393 +1,245 @@
-// =====================================
-// MOVIESTREAM SCRIPT.JS
-// =====================================
+<!-- POPULAR -->
 
+<section id="popular" class="trending">
 
-// MOVIE LIST
+<h2>🔥 Popular This Week</h2>
 
-const movies = [
+<div class="movies" id="popular-container"></div>
 
-"acrimony2",
-"aladdin",
-"annabelle_creation",
-"antman",
-"avatar",
-"blackwidow",
-"cruella",
-"damsel",
-"dune2",
-"dune3",
-"extraction",
-"extraction3",
-"furiosa",
-"howtotrainyourdragon",
-"johnwick4",
-"kraken",
-"luca",
-"maleficent",
-"manonfire",
-"mosi",
-"mowgli",
-"oneofthemdays",
-"onepiece",
-"paidinfull",
-"rampage",
-"siren",
-"spiderman",
-"strangerthings",
-"theconjuring",
-"thelastairbender",
-"themud",
-"thenun",
-"thepunisher",
-"warmachine",
-"webweaver",
-"zootopia2",
-"theequalizer",
-"shrek",
-"skyscraper",
-"moana",
-"thering",
-"from",
-"peakyblinders",
-"thebeekeeper",
-"sinners",
-"piratesofthecaribbean",
-"coco",
-"thelastoneofus",
-"it"
+</section>
 
-];
 
 
+<!-- NEW RELEASES -->
 
+<section class="trending">
 
-// =====================================
-// CUSTOM IMAGE FILE NAMES
-// =====================================
+<h2>🎬 New Releases</h2>
 
+<div class="movies" id="new-container"></div>
 
-const movieImages = {
+</section>
 
 
-annabelle_creation:"annabelle1.jpg",
 
-dune2:"dune.jpg",
+<!-- TOP RATED -->
 
-spiderman:"spiderman1.jpg"
+<section class="trending">
 
+<h2>⭐ Top Rated</h2>
 
-};
+<div class="movies" id="top-container"></div>
 
+</section>
 
 
 
+<!-- COMING SOON -->
 
-// FUNCTION TO GET IMAGE
+<section class="trending">
 
+<h2>⏳ Coming Soon</h2>
 
-function getMovieImage(movie){
+<div class="movies" id="coming-container"></div>
 
+</section>
 
-if(movieImages[movie]){
 
 
-return "images/" + movieImages[movie];
+<!-- WHY CHOOSE US -->
 
+<section class="features">
 
-}
+<h2>Why Choose MovieStream?</h2>
 
+<div class="feature-grid">
 
-return "images/" + movie + ".jpg";
+<div class="feature-card">
 
+<h3>⚡ Ultra Fast</h3>
 
-}
+<p>Stream instantly without long loading times.</p>
 
+</div>
 
+<div class="feature-card">
 
+<h3>🎬 Huge Library</h3>
 
+<p>Thousands of movies, series and documentaries.</p>
 
+</div>
 
+<div class="feature-card">
 
-// =====================================
-// CREATE BACKGROUND POSTERS
-// =====================================
+<h3>📱 Watch Anywhere</h3>
 
+<p>Mobile, tablet, laptop and smart TV support.</p>
 
-const background =
-document.getElementById("poster-background");
+</div>
 
+<div class="feature-card">
 
+<h3>🔒 Secure Streaming</h3>
 
-if(background){
+<p>Safe accounts with high-quality streaming.</p>
 
+</div>
 
-movies.forEach(movie=>{
+</div>
 
+</section>
 
-const img =
-document.createElement("img");
 
 
-img.src =
-getMovieImage(movie);
+<!-- SUBSCRIPTION -->
 
+<section id="plans" class="pricing">
 
-img.alt =
-movie;
+<h2>Choose Your Plan</h2>
 
+<div class="plans">
 
-background.appendChild(img);
+<div class="plan">
 
+<h3>Basic</h3>
 
+<p class="price">$4.99/month</p>
 
-});
+<ul>
 
+<li>✔ HD Streaming</li>
 
-}
+<li>✔ 1 Device</li>
 
+<li>✔ Movie Library</li>
 
+</ul>
 
+<button>Subscribe</button>
 
+</div>
 
 
 
-// =====================================
-// CREATE MOVIE CARDS
-// =====================================
+<div class="plan featured">
 
+<h3>Premium</h3>
 
-const movieContainer =
-document.getElementById("movie-container");
+<p class="price">$9.99/month</p>
 
+<ul>
 
+<li>✔ Full HD</li>
 
-if(movieContainer){
+<li>✔ 3 Devices</li>
 
+<li>✔ Offline Download</li>
 
-movies.forEach(movie=>{
+<li>✔ No Ads</li>
 
+</ul>
 
-const card =
-document.createElement("div");
+<button>Subscribe</button>
 
+</div>
 
-card.className="card";
 
 
+<div class="plan">
 
-card.innerHTML = `
+<h3>VIP</h3>
 
+<p class="price">$14.99/month</p>
 
-<a href="movie.html?movie=${movie}">
+<ul>
 
+<li>✔ 4K Ultra HD</li>
 
-<img src="${getMovieImage(movie)}" 
-alt="${movie}">
+<li>✔ Unlimited Devices</li>
 
+<li>✔ Early Access</li>
 
-<h3>
-${movie.replaceAll("_"," ")}
-</h3>
+<li>✔ VIP Support</li>
 
+</ul>
 
-</a>
+<button>Subscribe</button>
 
+</div>
 
-`;
+</div>
 
+</section>
 
 
-movieContainer.appendChild(card);
 
+<!-- STATS -->
 
+<section class="stats">
 
-});
+<div class="stat">
 
+<h1>10,000+</h1>
 
-}
+<p>Movies</p>
 
+</div>
 
+<div class="stat">
 
+<h1>2,500+</h1>
 
+<p>TV Shows</p>
 
+</div>
 
+<div class="stat">
 
-// =====================================
-// HEADER EFFECT
-// =====================================
+<h1>180+</h1>
 
+<p>Countries</p>
 
-const header =
-document.querySelector("header");
+</div>
 
+<div class="stat">
 
+<h1>5M+</h1>
 
-window.addEventListener("scroll",()=>{
+<p>Users</p>
 
+</div>
 
-if(window.scrollY > 50){
+</section>
 
 
-header.style.background =
-"rgba(0,0,0,0.95)";
 
+<!-- FOOTER -->
 
-}
+<footer id="footer">
 
-else{
+<h2>MovieStream</h2>
 
+<p>
 
-header.style.background =
-"rgba(0,0,0,0.65)";
+Unlimited entertainment anytime, anywhere.
 
+</p>
 
-}
+<br>
 
+<p>
 
-});
+Home • Movies • TV Shows • Contact • Privacy Policy
 
+</p>
 
+<br>
 
+<p>
 
+© 2026 MovieStream. All Rights Reserved.
 
+</p>
 
-
-// =====================================
-// HERO BUTTONS
-// =====================================
-
-
-const watchButton =
-document.querySelector(".watch");
-
-
-
-if(watchButton){
-
-
-watchButton.onclick=function(){
-
-
-alert(
-"Subscribe to start watching movies."
-);
-
-
-};
-
-
-}
-
-
-
-
-const infoButton =
-document.querySelector(".info");
-
-
-
-if(infoButton){
-
-
-infoButton.onclick=function(){
-
-
-document
-.getElementById("movies")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-
-};
-
-
-}
-
-
-
-
-
-
-
-// =====================================
-// SUBSCRIBE BUTTONS
-// =====================================
-
-
-const subscribeButtons =
-document.querySelectorAll(".plan button");
-
-
-
-subscribeButtons.forEach(button=>{
-
-
-button.onclick=function(){
-
-
-alert(
-"Payment system coming soon."
-);
-
-
-};
-
-
-});
-
-
-
-
-
-
-// =====================================
-// LOGIN / SIGNUP
-// =====================================
-
-
-const login =
-document.querySelector(".login");
-
-
-const signup =
-document.querySelector(".signup");
-
-
-
-if(login){
-
-
-login.onclick=function(){
-
-
-alert(
-"Login page coming soon."
-);
-
-
-};
-
-
-}
-
-
-
-if(signup){
-
-
-signup.onclick=function(){
-
-
-alert(
-"Create account page coming soon."
-);
-
-
-};
-
-
-}
+</footer>
