@@ -3,21 +3,19 @@
 // =====================================
 
 
-// =====================================
-// MOVIE DATABASE
-// =====================================
+// MOVIE LIST
 
 const movies = [
 
 "acrimony2",
 "aladdin",
-"annabelle1",
+"annabelle_creation",
 "antman",
 "avatar",
 "blackwidow",
 "cruella",
 "damsel",
-"dune",
+"dune2",
 "dune3",
 "extraction",
 "extraction3",
@@ -35,7 +33,7 @@ const movies = [
 "paidinfull",
 "rampage",
 "siren",
-"spiderman1",
+"spiderman",
 "strangerthings",
 "theconjuring",
 "thelastairbender",
@@ -65,15 +63,63 @@ const movies = [
 
 
 // =====================================
-// CREATE MOVING POSTER BACKGROUND
+// CUSTOM IMAGE FILE NAMES
 // =====================================
 
-const posterBackground =
+
+const movieImages = {
+
+
+annabelle_creation:"annabelle1.jpg",
+
+dune2:"dune.jpg",
+
+spiderman:"spiderman1.jpg"
+
+
+};
+
+
+
+
+
+// FUNCTION TO GET IMAGE
+
+
+function getMovieImage(movie){
+
+
+if(movieImages[movie]){
+
+
+return "images/" + movieImages[movie];
+
+
+}
+
+
+return "images/" + movie + ".jpg";
+
+
+}
+
+
+
+
+
+
+
+// =====================================
+// CREATE BACKGROUND POSTERS
+// =====================================
+
+
+const background =
 document.getElementById("poster-background");
 
 
 
-if(posterBackground){
+if(background){
 
 
 movies.forEach(movie=>{
@@ -84,13 +130,15 @@ document.createElement("img");
 
 
 img.src =
-`images/${movie}.jpg`;
+getMovieImage(movie);
 
 
-img.alt = movie;
+img.alt =
+movie;
 
 
-posterBackground.appendChild(img);
+background.appendChild(img);
+
 
 
 });
@@ -103,8 +151,9 @@ posterBackground.appendChild(img);
 
 
 
+
 // =====================================
-// CREATE MOVIE CATALOG
+// CREATE MOVIE CARDS
 // =====================================
 
 
@@ -129,13 +178,21 @@ card.className="card";
 
 card.innerHTML = `
 
-<img src="images/${movie}.jpg"
+
+<a href="movie.html?movie=${movie}">
+
+
+<img src="${getMovieImage(movie)}" 
 alt="${movie}">
 
 
 <h3>
 ${movie.replaceAll("_"," ")}
 </h3>
+
+
+</a>
+
 
 `;
 
@@ -149,6 +206,7 @@ movieContainer.appendChild(card);
 
 
 }
+
 
 
 
@@ -194,8 +252,9 @@ header.style.background =
 
 
 
+
 // =====================================
-// BUTTON ACTIONS
+// HERO BUTTONS
 // =====================================
 
 
@@ -207,11 +266,11 @@ document.querySelector(".watch");
 if(watchButton){
 
 
-watchButton.onclick=()=>{
+watchButton.onclick=function(){
 
 
 alert(
-"🎬 Choose a subscription plan to start watching."
+"Subscribe to start watching movies."
 );
 
 
@@ -231,7 +290,7 @@ document.querySelector(".info");
 if(infoButton){
 
 
-infoButton.onclick=()=>{
+infoButton.onclick=function(){
 
 
 document
@@ -253,6 +312,7 @@ behavior:"smooth"
 
 
 
+
 // =====================================
 // SUBSCRIBE BUTTONS
 // =====================================
@@ -266,11 +326,11 @@ document.querySelectorAll(".plan button");
 subscribeButtons.forEach(button=>{
 
 
-button.onclick=()=>{
+button.onclick=function(){
 
 
 alert(
-"💳 Payment system will be connected soon."
+"Payment system coming soon."
 );
 
 
@@ -301,7 +361,7 @@ document.querySelector(".signup");
 if(login){
 
 
-login.onclick=()=>{
+login.onclick=function(){
 
 
 alert(
@@ -319,15 +379,15 @@ alert(
 if(signup){
 
 
-signup.onclick=()=>{
+signup.onclick=function(){
 
 
 alert(
-"Registration page coming soon."
+"Create account page coming soon."
 );
 
 
 };
 
 
-    }
+}
