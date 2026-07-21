@@ -447,49 +447,165 @@ description:"A group of children face a terrifying creature that haunts their to
 
 
 
-// =====================================
-// LOAD MOVIE DETAILS
+ // =====================================
+// MOVIE DETAILS LOADER
 // =====================================
 
-const selectedMovie =
-new URLSearchParams(window.location.search)
-.get("movie");
 
+// Get movie name from URL
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const selectedMovie = urlParams.get("movie");
+
+
+
+// Find movie data
 
 if(selectedMovie && movieDatabase[selectedMovie]){
 
 
-const movie =
-movieDatabase[selectedMovie];
+    const movie = movieDatabase[selectedMovie];
 
 
-document.getElementById("movie-poster").src =
-`images/${selectedMovie}.jpg`;
+    // Poster
+
+    const poster =
+    document.getElementById("movie-poster");
+
+    if(poster){
+
+        poster.src = `images/${selectedMovie}.jpg`;
+
+        poster.onerror = function(){
+
+            this.src = "images/default.jpg";
+
+        };
+
+    }
 
 
-document.getElementById("movie-title").textContent =
-movie.title;
+
+    // Title
+
+    const title =
+    document.getElementById("movie-title");
+
+    if(title){
+
+        title.textContent = movie.title;
+
+    }
 
 
-document.getElementById("movie-description").textContent =
-movie.description;
 
 
-document.getElementById("rating").textContent =
-movie.rating + "/10";
+    // Description
+
+    const description =
+    document.getElementById("movie-description");
 
 
-document.getElementById("category").textContent =
-movie.category;
+    if(description){
+
+        description.textContent =
+        movie.description;
+
+    }
 
 
-document.getElementById("year").textContent =
-movie.year;
 
 
-document.title =
-movie.title + " | MovieStream";
+
+    // Rating
+
+    const rating =
+    document.getElementById("rating");
 
 
-  }
-  }
+    if(rating){
+
+        rating.textContent =
+        movie.rating + "/10";
+
+    }
+
+
+
+
+
+    // Category
+
+    const category =
+    document.getElementById("category");
+
+
+    if(category){
+
+        category.textContent =
+        movie.category;
+
+    }
+
+
+
+
+
+    // Year
+
+    const year =
+    document.getElementById("year");
+
+
+    if(year){
+
+        year.textContent =
+        movie.year;
+
+    }
+
+
+
+
+
+    // Change browser title
+
+    document.title =
+    movie.title + " | MovieStream";
+
+
+
+
+}
+
+else{
+
+
+const title =
+document.getElementById("movie-title");
+
+
+const description =
+document.getElementById("movie-description");
+
+
+
+if(title){
+
+title.textContent =
+"Movie Not Found";
+
+}
+
+
+
+if(description){
+
+description.textContent =
+"Sorry, this movie information is not available.";
+
+}
+
+
+} }
