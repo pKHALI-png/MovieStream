@@ -1,6 +1,6 @@
-/* ============================
-   MOVIESTREAM PREMIUM STYLE
-============================ */
+/* ==============================
+   MOVIESTREAM PREMIUM CSS
+================================*/
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -16,7 +16,7 @@
 
 body{
 
-    background:#080808;
+    background:#070707;
     color:white;
     overflow-x:hidden;
 
@@ -31,9 +31,9 @@ html{
 
 
 
-/* ============================
-HEADER
-============================ */
+/* ==============================
+ HEADER
+================================*/
 
 
 header{
@@ -43,13 +43,14 @@ header{
     width:100%;
     height:80px;
 
+    padding:0 7%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    padding:0 7%;
+    background:rgba(0,0,0,0.75);
 
-    background:rgba(0,0,0,.75);
     backdrop-filter:blur(15px);
 
     z-index:1000;
@@ -60,9 +61,13 @@ header{
 
 .logo{
 
-    font-size:30px;
-    font-weight:800;
+    font-size:32px;
+
+    font-weight:900;
+
     color:#e50914;
+
+    letter-spacing:1px;
 
 }
 
@@ -71,6 +76,7 @@ header{
 nav{
 
     display:flex;
+
     gap:35px;
 
 }
@@ -79,9 +85,12 @@ nav{
 
 nav a{
 
-    text-decoration:none;
     color:white;
+
+    text-decoration:none;
+
     font-size:15px;
+
     transition:.3s;
 
 }
@@ -95,12 +104,14 @@ nav a:hover{
 
 
 
-
 .buttons button{
 
     padding:10px 25px;
+
     border-radius:30px;
+
     cursor:pointer;
+
     font-weight:600;
 
 }
@@ -110,8 +121,10 @@ nav a:hover{
 .login{
 
     background:none;
-    color:white;
+
     border:1px solid white;
+
+    color:white;
 
 }
 
@@ -120,39 +133,55 @@ nav a:hover{
 .signup{
 
     background:#e50914;
-    color:white;
+
     border:none;
+
+    color:white;
 
 }
 
 
 
-/* ============================
-HERO
-============================ */
+
+
+/* ==============================
+ HERO
+================================*/
 
 
 .hero{
 
     height:100vh;
 
-    background:
-
-    linear-gradient(
-    rgba(0,0,0,.45),
-    #080808
-    ),
-
-    url("images/hero.jpg");
-
-
-    background-size:cover;
-    background-position:center;
+    position:relative;
 
     display:flex;
+
     align-items:center;
 
     padding:0 7%;
+
+    overflow:hidden;
+
+}
+
+
+
+.hero-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    filter:brightness(35%);
+
+    transition:1.5s ease;
+
+    z-index:-1;
 
 }
 
@@ -169,7 +198,9 @@ HERO
 .overlay h1{
 
     font-size:70px;
+
     line-height:1.1;
+
     font-weight:800;
 
 }
@@ -180,8 +211,9 @@ HERO
 
     margin:25px 0;
 
+    color:#ddd;
+
     font-size:18px;
-    color:#ccc;
 
 }
 
@@ -189,10 +221,14 @@ HERO
 
 .hero-buttons button{
 
-    padding:16px 35px;
+    padding:15px 35px;
+
     border-radius:40px;
-    margin-right:15px;
+
     cursor:pointer;
+
+    margin-right:15px;
+
     font-size:16px;
 
 }
@@ -202,8 +238,10 @@ HERO
 .watch{
 
     background:#e50914;
-    color:white;
+
     border:none;
+
+    color:white;
 
 }
 
@@ -211,9 +249,11 @@ HERO
 
 .info{
 
-    background:#ffffff25;
-    color:white;
+    background:#ffffff30;
+
     border:1px solid white;
+
+    color:white;
 
 }
 
@@ -221,9 +261,9 @@ HERO
 
 
 
-/* ============================
-MOVIES
-============================ */
+/* ==============================
+ MOVIES
+================================*/
 
 
 .trending{
@@ -239,6 +279,7 @@ MOVIES
 .pricing h2{
 
     font-size:35px;
+
     margin-bottom:35px;
 
 }
@@ -248,6 +289,7 @@ MOVIES
 .movies{
 
     display:flex;
+
     gap:25px;
 
     overflow-x:auto;
@@ -267,15 +309,16 @@ MOVIES
 .card{
 
     min-width:220px;
+
     height:330px;
+
+    background:#151515;
 
     border-radius:18px;
 
     overflow:hidden;
 
     position:relative;
-
-    background:#151515;
 
     cursor:pointer;
 
@@ -288,6 +331,7 @@ MOVIES
 .card img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
@@ -334,9 +378,10 @@ MOVIES
 
 
 
-/* ============================
-CATEGORIES
-============================ */
+
+/* ==============================
+ CATEGORIES
+================================*/
 
 
 .categories{
@@ -368,7 +413,7 @@ CATEGORIES
 
     border-radius:20px;
 
-    background:#171717;
+    background:#151515;
 
     font-size:22px;
 
@@ -392,9 +437,9 @@ CATEGORIES
 
 
 
-/* ============================
-PLANS
-============================ */
+/* ==============================
+ PLANS
+================================*/
 
 
 .pricing{
@@ -425,9 +470,9 @@ PLANS
 
     background:#151515;
 
-    padding:40px;
-
     width:300px;
+
+    padding:40px;
 
     border-radius:25px;
 
@@ -435,11 +480,9 @@ PLANS
 
 
 
-.featured{
+.plan.featured{
 
     border:2px solid #e50914;
-
-    transform:scale(1.05);
 
 }
 
@@ -477,9 +520,9 @@ PLANS
 
     padding:14px 30px;
 
-    border-radius:30px;
-
     border:none;
+
+    border-radius:30px;
 
     background:#e50914;
 
@@ -490,16 +533,17 @@ PLANS
 
 
 
-/* ============================
-FOOTER
-============================ */
+
+/* ==============================
+ FOOTER
+================================*/
 
 
 footer{
 
-    padding:40px;
-
     text-align:center;
+
+    padding:40px;
 
     color:#888;
 
@@ -511,9 +555,9 @@ footer{
 
 
 
-/* ============================
-MOBILE
-============================ */
+/* ==============================
+ MOBILE
+================================*/
 
 
 @media(max-width:800px){
@@ -524,14 +568,6 @@ nav{
     display:none;
 
 }
-
-
-.logo{
-
-    font-size:22px;
-
-}
-
 
 
 .overlay h1{
@@ -551,13 +587,4 @@ nav{
 }
 
 
-
-.featured{
-
-    transform:none;
-
-}
-
-
-
-}
+   }
