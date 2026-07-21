@@ -1,5 +1,5 @@
 /* ==================================
-   MOVIESTREAM PREMIUM STYLE
+   MOVIESTREAM UPDATED STYLE
 ================================== */
 
 
@@ -16,7 +16,7 @@
 
 body{
 
-    background:#070707;
+    background:#050505;
     color:white;
     overflow-x:hidden;
 
@@ -30,16 +30,17 @@ html{
 }
 
 
-
 /* ==================================
-   HEADER
+HEADER
 ================================== */
 
 
 header{
 
     position:fixed;
+
     top:0;
+
     width:100%;
 
     height:80px;
@@ -47,17 +48,18 @@ header{
     padding:0 7%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    background:rgba(0,0,0,0.75);
+    background:rgba(0,0,0,.65);
 
     backdrop-filter:blur(15px);
 
     z-index:1000;
 
 }
-
 
 
 .logo{
@@ -81,7 +83,6 @@ nav{
 }
 
 
-
 nav a{
 
     text-decoration:none;
@@ -91,7 +92,6 @@ nav a{
     transition:.3s;
 
 }
-
 
 
 nav a:hover{
@@ -110,10 +110,7 @@ nav a:hover{
 
     cursor:pointer;
 
-    font-weight:600;
-
 }
-
 
 
 .login{
@@ -125,7 +122,6 @@ nav a:hover{
     border:1px solid white;
 
 }
-
 
 
 .signup{
@@ -140,16 +136,14 @@ nav a:hover{
 
 
 
-
-
 /* ==================================
-   HERO SECTION
+HERO
 ================================== */
 
 
 .hero{
 
-    height:100vh;
+    min-height:100vh;
 
     width:100%;
 
@@ -167,115 +161,148 @@ nav a:hover{
 
 
 
-/* MOVING POSTER BACKGROUND */
+
+
+/* MOVING POSTER WALL */
 
 
 .poster-background{
 
+
     position:absolute;
 
-    top:-200px;
-    left:-200px;
 
-    width:calc(100% + 400px);
-    height:calc(100% + 400px);
+    top:-250px;
+
+    left:-250px;
+
+
+    width:calc(100% + 500px);
+
+    height:calc(100% + 500px);
 
 
     display:grid;
 
+
     grid-template-columns:repeat(6,1fr);
 
-    gap:18px;
+
+    gap:20px;
 
 
-    transform:rotate(-8deg) scale(1.3);
+    transform:rotate(-8deg) scale(1.25);
 
 
     opacity:.65;
 
 
-    filter:brightness(50%);
+    filter:brightness(45%);
 
 
     z-index:0;
 
 
+    animation:posterMove 45s linear infinite;
+
+
 }
+
+
 
 
 .poster-background img{
 
-    width:240px;
 
-    height:360px;
+    width:230px;
+
+
+    height:350px;
+
 
     object-fit:cover;
 
-    border-radius:15px;
+
+    border-radius:18px;
+
+
+    box-shadow:0 10px 30px black;
+
 
 }
 
 
 
-@keyframes posterMove {
 
-    0% {
+
+@keyframes posterMove{
+
+
+    from{
+
 
         transform:
         rotate(-8deg)
-        scale(1.3)
+        scale(1.25)
         translateY(0);
 
+
     }
 
 
-    50% {
+    to{
+
 
         transform:
         rotate(-8deg)
-        scale(1.3)
-        translateY(-300px);
+        scale(1.25)
+        translateY(-700px);
+
 
     }
 
-
-    100% {
-
-        transform:
-        rotate(-8deg)
-        scale(1.3)
-        translateY(-600px);
-
-    }
 
 }
 
 
 
 
-/* DARK OVERLAY */
+
+
+
+/* DARK CINEMA OVERLAY */
 
 
 .hero::after{
 
+
     content:"";
+
 
     position:absolute;
 
+
     inset:0;
+
 
     background:
 
     linear-gradient(
+
     to bottom,
-    rgba(0,0,0,.4),
-    #070707
+
+    rgba(0,0,0,.35),
+
+    #050505
+
     );
 
 
     z-index:1;
 
+
 }
+
 
 
 
@@ -283,11 +310,15 @@ nav a:hover{
 
 .overlay{
 
+
     position:relative;
+
 
     z-index:2;
 
-    max-width:700px;
+
+    max-width:750px;
+
 
 }
 
@@ -295,11 +326,15 @@ nav a:hover{
 
 .overlay h1{
 
+
     font-size:70px;
+
 
     line-height:1.1;
 
+
     font-weight:800;
+
 
 }
 
@@ -307,11 +342,15 @@ nav a:hover{
 
 .overlay p{
 
+
     margin:25px 0;
+
+
+    font-size:18px;
+
 
     color:#ddd;
 
-    font-size:18px;
 
 }
 
@@ -328,10 +367,10 @@ nav a:hover{
     border-radius:40px;
 
 
-    cursor:pointer;
-
-
     margin-right:15px;
+
+
+    cursor:pointer;
 
 
     font-size:16px;
@@ -346,9 +385,12 @@ nav a:hover{
 
     background:#e50914;
 
+
     color:white;
 
+
     border:none;
+
 
 }
 
@@ -359,9 +401,12 @@ nav a:hover{
 
     background:#ffffff30;
 
+
     color:white;
 
+
     border:1px solid white;
+
 
 }
 
@@ -370,14 +415,14 @@ nav a:hover{
 
 
 /* ==================================
- MOVIES SECTION
+MOVIE CARDS
 ================================== */
 
 
 .trending{
 
 
-    padding:70px 7%;
+padding:70px 7%;
 
 
 }
@@ -389,23 +434,24 @@ nav a:hover{
 .pricing h2{
 
 
-    font-size:35px;
+font-size:35px;
 
-    margin-bottom:35px;
+margin-bottom:35px;
 
 
 }
 
 
 
+
 .movies{
 
 
-    display:flex;
+display:flex;
 
-    gap:25px;
+gap:25px;
 
-    overflow-x:auto;
+overflow-x:auto;
 
 
 }
@@ -414,35 +460,28 @@ nav a:hover{
 
 .movies::-webkit-scrollbar{
 
-    display:none;
+display:none;
 
 }
-
-
 
 
 
 .card{
 
 
-    min-width:220px;
+min-width:220px;
 
-    height:330px;
+height:330px;
 
+position:relative;
 
-    position:relative;
+overflow:hidden;
 
+border-radius:18px;
 
-    overflow:hidden;
+cursor:pointer;
 
-
-    border-radius:18px;
-
-
-    cursor:pointer;
-
-
-    transition:.4s;
+transition:.4s;
 
 
 }
@@ -452,15 +491,13 @@ nav a:hover{
 .card img{
 
 
-    width:100%;
+width:100%;
 
-    height:100%;
+height:100%;
 
+object-fit:cover;
 
-    object-fit:cover;
-
-
-    transition:.5s;
+transition:.5s;
 
 
 }
@@ -470,24 +507,23 @@ nav a:hover{
 .card h3{
 
 
-    position:absolute;
+position:absolute;
 
+bottom:0;
 
-    bottom:0;
+width:100%;
 
+padding:15px;
 
-    width:100%;
+background:
 
+linear-gradient(
 
-    padding:15px;
+transparent,
 
+black
 
-    background:
-
-    linear-gradient(
-    transparent,
-    black
-    );
+);
 
 
 }
@@ -497,7 +533,7 @@ nav a:hover{
 .card:hover{
 
 
-    transform:translateY(-12px);
+transform:translateY(-12px);
 
 
 }
@@ -507,7 +543,7 @@ nav a:hover{
 .card:hover img{
 
 
-    transform:scale(1.15);
+transform:scale(1.15);
 
 
 }
@@ -517,14 +553,14 @@ nav a:hover{
 
 
 /* ==================================
- CATEGORIES
+CATEGORIES
 ================================== */
 
 
 .categories{
 
 
-    padding:70px 7%;
+padding:70px 7%;
 
 
 }
@@ -534,15 +570,15 @@ nav a:hover{
 .grid{
 
 
-    display:grid;
+display:grid;
 
 
-    grid-template-columns:
+grid-template-columns:
 
-    repeat(auto-fit,minmax(200px,1fr));
+repeat(auto-fit,minmax(200px,1fr));
 
 
-    gap:25px;
+gap:25px;
 
 
 }
@@ -552,22 +588,22 @@ nav a:hover{
 .category{
 
 
-    background:#151515;
+background:#151515;
 
 
-    padding:35px;
+padding:35px;
 
 
-    text-align:center;
+text-align:center;
 
 
-    border-radius:20px;
+border-radius:20px;
 
 
-    font-size:22px;
+font-size:22px;
 
 
-    transition:.4s;
+transition:.3s;
 
 
 }
@@ -577,10 +613,7 @@ nav a:hover{
 .category:hover{
 
 
-    background:#e50914;
-
-
-    transform:translateY(-10px);
+background:#e50914;
 
 
 }
@@ -590,16 +623,17 @@ nav a:hover{
 
 
 /* ==================================
- PLANS
+PLANS
 ================================== */
 
 
 .pricing{
 
 
-    padding:80px 7%;
+padding:80px 7%;
 
-    text-align:center;
+
+text-align:center;
 
 
 }
@@ -609,13 +643,16 @@ nav a:hover{
 .plans{
 
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
 
-    gap:30px;
+justify-content:center;
 
-    flex-wrap:wrap;
+
+gap:30px;
+
+
+flex-wrap:wrap;
 
 
 }
@@ -625,16 +662,16 @@ nav a:hover{
 .plan{
 
 
-    background:#151515;
+background:#151515;
 
 
-    width:300px;
+width:300px;
 
 
-    padding:40px;
+padding:40px;
 
 
-    border-radius:25px;
+border-radius:25px;
 
 
 }
@@ -644,7 +681,7 @@ nav a:hover{
 .plan.featured{
 
 
-    border:2px solid #e50914;
+border:2px solid #e50914;
 
 
 }
@@ -654,16 +691,16 @@ nav a:hover{
 .price{
 
 
-    color:#e50914;
+font-size:40px;
 
 
-    font-size:40px;
+font-weight:800;
 
 
-    font-weight:800;
+color:#e50914;
 
 
-    margin:20px;
+margin:20px;
 
 
 }
@@ -673,13 +710,13 @@ nav a:hover{
 .plan ul{
 
 
-    list-style:none;
+list-style:none;
 
 
-    color:#ccc;
+line-height:2;
 
 
-    line-height:2;
+color:#ccc;
 
 
 }
@@ -689,22 +726,22 @@ nav a:hover{
 .plan button{
 
 
-    margin-top:25px;
+margin-top:25px;
 
 
-    padding:14px 30px;
+padding:14px 30px;
 
 
-    border:none;
+border:none;
 
 
-    border-radius:30px;
+border-radius:30px;
 
 
-    background:#e50914;
+background:#e50914;
 
 
-    color:white;
+color:white;
 
 
 }
@@ -712,24 +749,22 @@ nav a:hover{
 
 
 
+
 /* ==================================
- FOOTER
+FOOTER
 ================================== */
 
 
 footer{
 
 
-    text-align:center;
+padding:40px;
 
 
-    padding:40px;
+text-align:center;
 
 
-    color:#888;
-
-
-    border-top:1px solid #222;
+color:#888;
 
 
 }
@@ -739,7 +774,7 @@ footer{
 
 
 /* ==================================
- MOBILE
+MOBILE
 ================================== */
 
 
@@ -753,7 +788,6 @@ display:none;
 }
 
 
-
 .overlay h1{
 
 font-size:40px;
@@ -764,19 +798,24 @@ font-size:40px;
 
 .poster-background{
 
+
 grid-template-columns:repeat(3,1fr);
 
-}
-
-
-
-.card{
-
-min-width:170px;
-
-height:250px;
 
 }
 
 
-   }
+
+.poster-background img{
+
+
+width:160px;
+
+height:240px;
+
+
+}
+
+
+
+       }
