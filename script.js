@@ -4,7 +4,7 @@
 
 
 // =====================================
-// MOVIE POSTER DATABASE
+// MOVIE DATABASE
 // =====================================
 
 const movies = [
@@ -68,30 +68,35 @@ const movies = [
 // CREATE MOVING POSTER BACKGROUND
 // =====================================
 
-
 const posterBackground =
 document.getElementById("poster-background");
 
 
 
-movies.forEach(movie => {
+if(posterBackground){
 
 
-    const poster =
-    document.createElement("img");
+movies.forEach(movie=>{
 
 
-    poster.src =
-    `images/${movie}.jpg`;
+const img =
+document.createElement("img");
 
 
-    poster.alt = movie;
+img.src =
+`images/${movie}.jpg`;
 
 
-    posterBackground.appendChild(poster);
+img.alt = movie;
+
+
+posterBackground.appendChild(img);
 
 
 });
+
+
+}
 
 
 
@@ -99,7 +104,59 @@ movies.forEach(movie => {
 
 
 // =====================================
-// HEADER SCROLL EFFECT
+// CREATE MOVIE CATALOG
+// =====================================
+
+
+const movieContainer =
+document.getElementById("movie-container");
+
+
+
+if(movieContainer){
+
+
+movies.forEach(movie=>{
+
+
+const card =
+document.createElement("div");
+
+
+card.className="card";
+
+
+
+card.innerHTML = `
+
+<img src="images/${movie}.jpg"
+alt="${movie}">
+
+
+<h3>
+${movie.replaceAll("_"," ")}
+</h3>
+
+`;
+
+
+
+movieContainer.appendChild(card);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+// =====================================
+// HEADER EFFECT
 // =====================================
 
 
@@ -111,55 +168,23 @@ document.querySelector("header");
 window.addEventListener("scroll",()=>{
 
 
-    if(window.scrollY > 50){
-
-        header.style.background =
-        "rgba(0,0,0,0.95)";
-
-    }
-
-    else{
-
-        header.style.background =
-        "rgba(0,0,0,0.75)";
-
-    }
+if(window.scrollY > 50){
 
 
-});
+header.style.background =
+"rgba(0,0,0,0.95)";
 
 
+}
+
+else{
 
 
+header.style.background =
+"rgba(0,0,0,0.65)";
 
 
-
-// =====================================
-// MOVIE CARD HOVER EFFECT
-// =====================================
-
-
-const cards =
-document.querySelectorAll(".card");
-
-
-
-cards.forEach(card=>{
-
-
-    card.addEventListener("mouseenter",()=>{
-
-        card.style.zIndex="10";
-
-    });
-
-
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.zIndex="1";
-
-    });
+}
 
 
 });
@@ -170,7 +195,7 @@ cards.forEach(card=>{
 
 
 // =====================================
-// BUTTON FUNCTIONS
+// BUTTON ACTIONS
 // =====================================
 
 
@@ -182,20 +207,18 @@ document.querySelector(".watch");
 if(watchButton){
 
 
-watchButton.addEventListener("click",()=>{
+watchButton.onclick=()=>{
 
 
-    alert(
-    "🎬 Choose a subscription plan to start watching."
-    );
+alert(
+"🎬 Choose a subscription plan to start watching."
+);
 
 
-});
+};
 
 
 }
-
-
 
 
 
@@ -208,7 +231,7 @@ document.querySelector(".info");
 if(infoButton){
 
 
-infoButton.addEventListener("click",()=>{
+infoButton.onclick=()=>{
 
 
 document
@@ -220,11 +243,41 @@ behavior:"smooth"
 });
 
 
-});
+};
 
 
 }
 
+
+
+
+
+
+// =====================================
+// SUBSCRIBE BUTTONS
+// =====================================
+
+
+const subscribeButtons =
+document.querySelectorAll(".plan button");
+
+
+
+subscribeButtons.forEach(button=>{
+
+
+button.onclick=()=>{
+
+
+alert(
+"💳 Payment system will be connected soon."
+);
+
+
+};
+
+
+});
 
 
 
@@ -240,7 +293,6 @@ const login =
 document.querySelector(".login");
 
 
-
 const signup =
 document.querySelector(".signup");
 
@@ -253,7 +305,7 @@ login.onclick=()=>{
 
 
 alert(
-"👤 Login system coming soon."
+"Login page coming soon."
 );
 
 
@@ -271,85 +323,11 @@ signup.onclick=()=>{
 
 
 alert(
-"🚀 Account creation coming soon."
+"Registration page coming soon."
 );
 
 
 };
 
 
-}
-
-
-
-
-
-
-// =====================================
-// SUBSCRIPTION BUTTONS
-// =====================================
-
-
-const subscribeButtons =
-document.querySelectorAll(".plan button");
-
-
-
-subscribeButtons.forEach(button=>{
-
-
-button.addEventListener("click",()=>{
-
-
-alert(
-
-"💳 Payment system will be added soon."
-
-);
-
-
-});
-
-
-});
-
-
-
-
-
-
-// =====================================
-// SIMPLE POSTER PARALLAX EFFECT
-// =====================================
-
-
-const posterWall =
-document.querySelector(".poster-background");
-
-
-
-window.addEventListener("mousemove",(e)=>{
-
-
-if(posterWall){
-
-
-let x =
-(e.clientX / window.innerWidth - 0.5) * 20;
-
-
-let y =
-(e.clientY / window.innerHeight - 0.5) * 20;
-
-
-
-posterWall.style.transform =
-
-`rotate(-8deg)
-scale(1.2)
-translate(${x}px,${y}px)`;
-
-}
-
-
-});
+    }
